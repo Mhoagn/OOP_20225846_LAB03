@@ -10,6 +10,13 @@ public class CompactDisc extends Disc implements Playable {
         super(title, category, null, 0, cost);
         this.artist = artist;
     }
+    
+    public CompactDisc(String title, String category, String artist, float cost, ArrayList<Track> tracks) {
+        super(title, category, null, 0, cost);  // Gọi constructor của lớp cha (Disc)
+        this.artist = artist;
+        this.tracks = tracks;
+    }
+
 
     public String getArtist() {
         return artist;
@@ -50,4 +57,9 @@ public class CompactDisc extends Disc implements Playable {
             track.play();
         }
     }
+    @Override
+    public String toString() {
+        return "CD: Artist=" + artist + ", Title=" + this.getTitle() + ", Category=" + this.getCategory() + ", Cost=" + this.getCost();
+    }
+
 }

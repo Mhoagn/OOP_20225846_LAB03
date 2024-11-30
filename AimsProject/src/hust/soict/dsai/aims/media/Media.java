@@ -65,4 +65,9 @@ public abstract class Media {
         System.out.println("Category: " + category);
         System.out.println("Cost: $" + cost);
     }
+
+    @Override
+    public String toString() {
+        return "Media: Title=" + this.title + ", Category=" + this.category + ", Cost=" + this.cost;
+    }
 }
