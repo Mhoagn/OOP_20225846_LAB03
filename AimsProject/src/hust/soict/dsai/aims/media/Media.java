@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
+
 public abstract class Media {
     private int id;
     private String title;
@@ -70,4 +72,6 @@ public abstract class Media {
     public String toString() {
         return "Media: Title=" + this.title + ", Category=" + this.category + ", Cost=" + this.cost;
     }
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaTitleCostComparator();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaCostTitleComparator();
 }
