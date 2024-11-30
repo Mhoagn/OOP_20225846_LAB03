@@ -17,12 +17,13 @@ public class CompactDisc extends Disc implements Playable {
     
     public void addTrack(Track track) {
         if (tracks.contains(track)) {
-            System.out.println("Track already exists: " + track.getTitle());
+            System.out.println("The track is already in the list.");
         } else {
             tracks.add(track);
-            System.out.println("Track added: " + track.getTitle());
+            System.out.println("The track has been added.");
         }
     }
+
 
     public void removeTrack(Track track) {
         if (tracks.contains(track)) {

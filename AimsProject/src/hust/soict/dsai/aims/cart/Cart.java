@@ -7,9 +7,14 @@ public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 
     public void addMedia(Media media) {
-        itemsOrdered.add(media);
-        System.out.println(media.getTitle() + " has been added to the cart.");
+        if (itemsOrdered.contains(media)) {
+            System.out.println("The media is already in the cart.");
+        } else {
+            itemsOrdered.add(media);
+            System.out.println("The media has been added to the cart.");
+        }
     }
+
 
     public void removeMedia(Media media) {
         if (itemsOrdered.contains(media)) {
@@ -28,6 +33,7 @@ public class Cart {
         return total;
     }
 
+    
     public void displayCart() {
         System.out.println("Items in the cart:");
         for (Media media : itemsOrdered) {
