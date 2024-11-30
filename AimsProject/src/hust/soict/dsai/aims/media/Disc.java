@@ -7,7 +7,7 @@ public class Disc extends Media {
     public Disc() {}
 
     public Disc(String title, String category, String director, int length, float cost) {
-        super(0, title, category, cost); // `id` có thể được tự động gán trong lớp cha
+        super(0, title, category, cost);
         this.length = length;
         this.director = director;
     }
