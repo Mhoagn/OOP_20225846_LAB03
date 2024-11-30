@@ -5,10 +5,8 @@ public abstract class Media {
     private String title;
     private String category;
     private float cost;
-    
-    public Media() {
-    }
 
+    public Media() {}
 
     public Media(int id, String title, String category, float cost) {
         this.id = id;
@@ -48,7 +46,7 @@ public abstract class Media {
     public void setCost(float cost) {
         this.cost = cost;
     }
-    
+
     public void displayInfo() {
         System.out.println("ID: " + id);
         System.out.println("Title: " + title);
@@ -56,4 +54,3 @@ public abstract class Media {
         System.out.println("Cost: $" + cost);
     }
 }
-
