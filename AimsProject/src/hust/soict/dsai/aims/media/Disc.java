@@ -7,7 +7,7 @@ public class Disc extends Media {
     public Disc() {}
 
     public Disc(String title, String category, String director, int length, float cost) {
-        super(0, title, category, cost);
+        super(0, title, category, cost); // Lấy id mặc định là 0
         this.length = length;
         this.director = director;
     }
@@ -19,4 +19,10 @@ public class Disc extends Media {
     public String getDirector() {
         return director;
     }
+
+    @Override
+    public String toString() {
+        return "Disc: Title=" + this.getTitle() + ", Category=" + this.getCategory() + ", Director=" + this.director + ", Length=" + this.length + " mins, Cost=" + this.getCost();
+    }
 }
+

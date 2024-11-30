@@ -51,4 +51,9 @@ public class Book extends Media {
         super.displayInfo();
         System.out.println("Authors: " + (authors.isEmpty() ? "None" : String.join(", ", authors)));
     }
+    @Override
+    public String toString() {
+        return "Book: ID=" + this.getId() + ", Title=" + this.getTitle() + ", Category=" + this.getCategory() + ", Cost=" + this.getCost();
+    }
+
 }
