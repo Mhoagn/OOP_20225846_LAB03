@@ -2,12 +2,12 @@ package hust.soict.dsai.aims.media;
 
 import java.util.ArrayList;
 
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable {
     private String artist;
     private ArrayList<Track> tracks = new ArrayList<>();
 
-    public CompactDisc(String title, String category, float cost, String director, int length, String artist) {
-        super(0, title, category, cost, length, director); 
+    public CompactDisc(String title, String category, String artist, float cost) {
+        super(title, category, null, 0, cost);
         this.artist = artist;
     }
 
@@ -29,7 +29,7 @@ public class CompactDisc extends Disc {
             tracks.remove(track);
             System.out.println("Track removed: " + track.getTitle());
         } else {
-            System.out.println("Track not found: " + track.getTitle());
+            System.out.println("Track does not exist: " + track.getTitle());
         }
     }
 
@@ -42,9 +42,11 @@ public class CompactDisc extends Disc {
     }
 
     @Override
-    public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Artist: " + artist);
-        System.out.println("Total Length: " + getLength() + " minutes");
+    public void play() {
+        System.out.println("Playing CD: " + this.getTitle());
+        System.out.println("Artist: " + this.artist);
+        for (Track track : tracks) {
+            track.play();
+        }
     }
 }
