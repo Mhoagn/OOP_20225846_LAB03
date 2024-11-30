@@ -1,9 +1,7 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Disc {
-    private static int nbDigitalVideoDiscs = 0;
+public class DigitalVideoDisc extends Disc implements Playable {
 
-    // Constructor 1
     public DigitalVideoDisc(String title) {
         super(title, null, null, 0, 0);
     }
@@ -12,20 +10,16 @@ public class DigitalVideoDisc extends Disc {
         super(title, category, director, length, cost);
     }
 
-    @Override
-    public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength() + " minutes");
-    }
-
     public boolean matchesTitle(String title) {
-        return getTitle().toLowerCase().contains(title.toLowerCase());  // Sử dụng getter để lấy title
+        return getTitle().toLowerCase().contains(title.toLowerCase());  
     }
 
+    // Phương thức kiểm tra danh mục
     public boolean matchesCategory(String category) {
-        return getCategory().equalsIgnoreCase(category);  // Sử dụng getter để lấy category
+        return getCategory().equalsIgnoreCase(category);  
     }
 
+    // Phương thức kiểm tra giá
     public boolean matchesPrice(float minPrice, float maxPrice) {
 
         if (minPrice > 0 && getCost() < minPrice) {  
@@ -35,5 +29,11 @@ public class DigitalVideoDisc extends Disc {
             return false;
         }
         return true;
+    }
+    
+    @Override
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength() + " minutes");
     }
 }
