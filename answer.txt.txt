@@ -1,14 +1,10 @@
-Câu hỏi phần 2.1
-
-Varargs linh hoạt và dễ sử dụng hơn vì không cần tạo mảng trước, nhưng mảng cho phép kiểm soát rõ ràng hơn khi cần thao tác trực tiếp với dữ liệu. Vì vậy tôi thích sử dụng mảng hơn.
-
-Câu hỏi phần 3
-Java là pass-by-value (truyền theo giá trị).
-
-Câu hỏi phần 3
-Sau khi gọi swap(jungleDVD, cinderellaDVD), tiêu đề của hai đối tượng vẫn giữ nguyên vì trong Java, các tham số được truyền theo giá trị, tức là các tham số là bản sao của tham chiếu, không thay đổi đối tượng ban đầu.
-
-Sau khi gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()), tiêu đề của jungleDVD bị thay đổi vì phương thức changeTitle thay đổi giá trị của thuộc tính title của đối tượng jungleDVD.
-Câu hỏi phần 6
-
-Phương thức toString() có kiểu trả về là String. 
+Trả lời câu hỏi phần 12:
+1. Lớp nào nên implement interface Comparable?
+Interface Comparable nên được implement trong các lớp Media và các lớp con của nó như Book, CompactDisc, DigitalVideoDisc. 
+2. Cách cài đặt phương thức compareTo() trong các lớp?
+Phương thức compareTo() trong interface Comparable yêu cầu bạn phải xác định cách thức so sánh đối tượng hiện tại với đối tượng khác.
+3. Có thể có hai quy tắc sắp xếp của các mục (theo tiêu đề rồi đến giá và theo giá rồi đến tiêu đề) nếu sử dụng interface Comparable không?
+Không, bạn không thể có hai quy tắc sắp xếp cùng một lúc trong phương thức compareTo() vì phương thức này chỉ thực hiện một quy tắc so sánh duy nhất. Nếu bạn muốn sử dụng hai quy tắc sắp xếp khác nhau, bạn sẽ phải sử dụng một lớp Comparator riêng biệt, ví dụ như MediaComparatorByTitleCost và MediaComparatorByCostTitle mà bạn có thể truyền vào Collections.sort().
+Tuy nhiên, nếu bạn muốn có thể sắp xếp theo nhiều quy tắc khác nhau với Comparable, bạn có thể thêm một tham số trong lớp Media hoặc sử dụng các phương thức compareTo() khác nhau trong các lớp con, hoặc kết hợp với Comparator khi cần.
+4. DVD có một quy tắc sắp xếp khác biệt so với các loại media khác, tức là theo tiêu đề, sau đó là chiều dài giảm dần, rồi đến giá. Làm thế nào để thay đổi mã nguồn để hỗ trợ điều này?
+Để DVD có một quy tắc sắp xếp khác biệt, bạn có thể override phương thức compareTo() trong lớp DigitalVideoDisc (hoặc lớp con của nó). Lúc này, DVD sẽ có cách sắp xếp riêng biệt.
